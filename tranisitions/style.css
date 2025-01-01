@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 350px;
+    border: 2px solid red;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;  /* remove this and see the effect text when not in the box when hover on text it start moving up*/
+  }
+  
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+    
+  }
+  
+  .text{
+    position: absolute;
+    font-size: 18px;
+    color: white;
+    transform: translateY(160%);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .container:hover img ~ .text{
+    transform: translateY(0%);
+  }
+  
+  .container:hover img:hover{
+    opacity: 0.7;
+  }
+  
+  /* 
+  when i hover img text comes when hover out text goes away this part is okay, but when text comes up, and when my mouse goes to text it goes down
+  ChatGPT said:
+  ChatGPT
+  This issue arises because when the text appears and you hover over it, the hover effect on the img is no longer active, causing the text to disappear. To fix this, you need to ensure the hover effect applies to the entire container instead of just the image.
+  
+  
